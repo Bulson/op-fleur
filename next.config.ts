@@ -1,17 +1,21 @@
 import type { NextConfig } from 'next'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 const nextConfig: NextConfig = {
-  // generujemy statyczne pliki
+  // statyczny eksport
   output: 'export',
-
-  // jeśli chcesz, możesz zostawić basePath i assetPrefix
-  basePath: '/op-fleur',
-  assetPrefix: '/op-fleur/',
-
-  // generuj foldery z index.html
+  // trailing slash, by każdy katalog miał index.html
   trailingSlash: true,
-
   reactStrictMode: true,
+
+  // tylko w produkcji ustawiamy ścieżki pod GitHub Pages
+  ...(isProd
+    ? {
+        basePath: '/op-fleur',
+        assetPrefix: '/op-fleur/',
+      }
+    : {}),
 }
 
 export default nextConfig
