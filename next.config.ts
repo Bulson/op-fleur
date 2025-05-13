@@ -1,19 +1,16 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // 1) generujemy statyczne pliki
+  // generujemy statyczne pliki
   output: 'export',
 
-  // 2) ścieżka bazowa (twój repozytorium to bulson/op-fleur)
+  // jeśli chcesz, możesz zostawić basePath i assetPrefix
   basePath: '/op-fleur',
-
-  // 3) prefix do zasobów statycznych
   assetPrefix: '/op-fleur/',
 
-  // 4) dodatkowo: generuj foldery z index.html
+  // generuj foldery z index.html
   trailingSlash: true,
 
-  // (opcjonalnie) włącz tryb ścisły Reacta
   reactStrictMode: true,
 }
 
